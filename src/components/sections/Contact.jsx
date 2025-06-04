@@ -28,7 +28,7 @@ export const Contact = () => {
 
     return (
     <section 
-        id="Contact" 
+        id="contact" 
         className="min-h-screen flex items-center justify-center py-20"
         >
 
