@@ -1,49 +1,49 @@
 @import "tailwindcss";
 
-html,
+/* Default (Dark mode) variables */
+:root {
+    --primary: #0a0a0a;
+    --secondary: #F9F6EE;
+    --tertiary: #D3D3D3;
+}
+
+/* Light mode variables */
+.light {
+    --primary: #F9F6EE;
+    --secondary: #0a0a0a;
+    --tertiary: #4a4a4a;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-family: 'Signika Negative', sans-serif;
+}
+
+/* Default body (dark mode) - keeps your original design */
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Space Grotesk', sans-serif;
-    background: #0a0a0a;
-    color: #f3f4f6;
+    background-color: var(--primary);
+    background-image: 
+        linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px);
+    background-size: 80px 80px;
 }
 
-@layer utilities {
-    @keyframes blink {
-        0%, -100% {
-            opacity: 1;
-        }
-        50%{
-            opacity: 0;
-        }
-    }
-
-    .animate-blink {
-        animation: blink 0.8s step-end infinite;
-    }
-
-    @keyframes loading {
-        0% {
-            transform: translateX(-100%);
-        }
-        100%{
-            transform: translateX(250%);
-        }
-    }
-
-    .animate-loading-bar {
-        animation: loading 0.8s ease infinite;
-    }
+/* Light mode body - adds subtle dark grid pattern */
+.light body {
+    background-color: var(--primary);
+    background-image: 
+        linear-gradient(rgba(0,0,0,0.3) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,0.3) 1px, transparent 1px);
+    background-size: 80px 80px;
 }
 
-.reveal {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
+@keyframes wave {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(20deg); }
+  75% { transform: rotate(-10deg); }
 }
 
-.reveal.visible{
-    opacity: 1;
-    transform: translateY(0);
+.wave {
+  animation: wave 1s ease-in-out infinite;
+  transform-origin: 70% 70%;
 }
