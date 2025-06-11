@@ -60,16 +60,12 @@ export const Socials = () => {
           className="fixed bottom-4 left-4 z-40 hidden md:block"
         >
           <div
-            className="backdrop-blur-md rounded-2xl px-3 py-4 border"
-            style={{ 
-              background: "rgba(255,255,255,0.02)",
-              borderColor: "rgba(255,255,255,0.1)"
-            }}
+            className="backdrop-blur-md rounded-2xl px-3 py-4 border bg-[rgba(255,255,255,0.02)] border-[rgba(255,255,255,0.2)] light-border"
           >
             <div className="flex flex-col items-center gap-4">
               {/* LinkedIn */}
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/jasper-tabin-1b8aaa348/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="transition-all duration-200 p-2 rounded-lg"
@@ -107,7 +103,7 @@ export const Socials = () => {
 
               {/* GitHub */}
               <a
-                href="https://github.com"
+                href="https://github.com/JasperTabin"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="transition-all duration-200 p-2 rounded-lg"

@@ -1,17 +1,25 @@
 @import "tailwindcss";
 
-/* Default (Dark mode) variables */
 :root {
     --primary: #0a0a0a;
     --secondary: #F9F6EE;
-    --tertiary: #D3D3D3;
+    --tertiary: #D3D3D3;  
+    --accent: #F9F6EE; /* SVG LINES */
+    --button-border: rgba(255,255,255,0.3); /* Add this */
+    --highlight: #708090;
 }
 
-/* Light mode variables */
 .light {
     --primary: #F9F6EE;
     --secondary: #0a0a0a;
     --tertiary: #4a4a4a;
+    --accent: #0a0a0a; /* SVG LINES */
+    --button-border: rgba(0,0,0,0.3); /* Add this */
+    --highlight: #708090;
+}
+
+.light .light-border {
+  border-color: rgba(0,0,0,0.2) !important;
 }
 
 html {
@@ -19,23 +27,22 @@ html {
     font-family: 'Signika Negative', sans-serif;
 }
 
-/* Default body (dark mode) - keeps your original design */
 body {
     background-color: var(--primary);
-    background-image: 
+    /* background-image: 
         linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px);
-    background-size: 80px 80px;
+    background-size: 60px 60px; */
 }
 
-/* Light mode body - adds subtle dark grid pattern */
 .light body {
     background-color: var(--primary);
-    background-image: 
+    /* background-image: 
         linear-gradient(rgba(0,0,0,0.3) 1px, transparent 1px),
         linear-gradient(90deg, rgba(0,0,0,0.3) 1px, transparent 1px);
-    background-size: 80px 80px;
+    background-size: 80px 80px; */
 }
+
 
 @keyframes wave {
   0%, 100% { transform: rotate(0deg); }

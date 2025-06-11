@@ -35,14 +35,10 @@ export const Navbar = ({ menuOpen, setMenuOpen }) => {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: -100, opacity: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="fixed top-4 left-1/2 transform -translate-x-1/2 z-40 w-full max-w-5xl px-4"
+          className="fixed top-4 left-1/2 transform -translate-x-1/2 z-40 w-full max-w-4xl px-4"
         >
-          <div className="backdrop-blur-md rounded-2xl border" 
-               style={{ 
-                 background: "rgba(255,255,255,0.02)",
-                 borderColor: "rgba(255,255,255,0.1)"
-               }}>
-            <div className="flex justify-between items-center h-14 px-6">
+          <div className="backdrop-blur-md rounded-2xl border bg-[rgba(255,255,255,0.02)] border-[rgba(255,255,255,0.2)] light-border">
+            <div className="flex justify-between items-center h-14 px-6 relative">
               <a
                 href="#Welcome"
                 onClick={(e) => {
@@ -57,8 +53,9 @@ export const Navbar = ({ menuOpen, setMenuOpen }) => {
                 JT
               </a>
 
+              {/* Hamburger Menu - Centered on Mobile */}
               <div
-                className="w-7 h-5 relative cursor-pointer z-40 md:hidden transition-colors duration-200"
+                className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-7 h-5 cursor-pointer z-40 md:hidden transition-colors duration-200 flex items-center justify-center"
                 onClick={() => setMenuOpen((prev) => !prev)}
                 style={{ color: "var(--secondary)" }}
               >
