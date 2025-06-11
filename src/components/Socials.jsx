@@ -6,36 +6,36 @@ export const Socials = () => {
   const [showSocials, setShowSocials] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      // Get section elements
-      const home = document.getElementById('home');
-      // const about = document.getElementById('about');
-      // const projects = document.getElementById('projects');
-      const contact = document.getElementById('contact');
-      const scrollY = window.scrollY + window.innerHeight / 2; // Middle of viewport
+  const handleScroll = () => {
+    const welcome = document.getElementById('Welcome');
+    const contact = document.getElementById('contact');
+    const welcomeRect = welcome?.getBoundingClientRect();
+    const contactRect = contact?.getBoundingClientRect();
 
-      // Get section positions
-      const homeTop = home?.offsetTop ?? 0;
-      // const aboutTop = about?.offsetTop ?? 0;
-      // const projectsTop = projects?.offsetTop ?? 0;
-      const contactTop = contact?.offsetTop ?? Number.MAX_SAFE_INTEGER;
+    const welcomeInView = welcomeRect && (
+      welcomeRect.top < window.innerHeight &&
+      welcomeRect.bottom > 0
+    );
 
-      // Show socials ONLY if in home, about, or projects section
-      if (
-        scrollY >= homeTop &&
-        scrollY < contactTop
-      ) {
-        setShowSocials(true);
-      } else {
-        setShowSocials(false);
-      }
-    };
+    const contactInView = contactRect && (
+      contactRect.top < window.innerHeight &&
+      contactRect.bottom > 0
+    );
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    // Run once on mount in case user reloads mid-page
-    handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    // Hide socials if either Welcome or contact is in view
+    if (welcomeInView || contactInView) {
+      setShowSocials(false);
+    } else {
+      setShowSocials(true);
+    }
+  };
+
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  handleScroll();
+  return () => window.removeEventListener('scroll', handleScroll);
+}, []);
+
+
 
   const scrollToSection = (id) => {
     const section = document.getElementById(id);
@@ -59,13 +59,11 @@ export const Socials = () => {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="fixed bottom-4 left-4 z-40 hidden md:block"
         >
-          <div
-            className="backdrop-blur-md rounded-2xl px-3 py-4 border bg-[rgba(255,255,255,0.02)] border-[rgba(255,255,255,0.2)] light-border"
-          >
+          <div className="backdrop-blur-md rounded-2xl px-3 py-4 border bg-[rgba(255,255,255,0.02)] border-[rgba(255,255,255,0.2)] light-border">
             <div className="flex flex-col items-center gap-4">
               {/* LinkedIn */}
               <a
-                href="https://www.linkedin.com/in/jasper-tabin-1b8aaa348/"
+                href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="transition-all duration-200 p-2 rounded-lg"
@@ -103,7 +101,7 @@ export const Socials = () => {
 
               {/* GitHub */}
               <a
-                href="https://github.com/JasperTabin"
+                href="https://github.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="transition-all duration-200 p-2 rounded-lg"

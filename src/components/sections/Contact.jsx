@@ -1,99 +1,197 @@
-// import { useState } from "react";
-// import { RevealOnScroll } from "../RevealOnScroll";
-// import emailjs from "emailjs-com";
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { Facebook, Github, Instagram, Linkedin, Send, User, Mail, MessageSquare } from "lucide-react";
 
-// export const Contact = () => {
-// const [formData, setFormData] = useState({
-//     name: "",
-//     email: "",
-//     message: "",
-// });
+export const Contact = () => {
+const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+const [status, setStatus] = useState(null);
+const [isSubmitting, setIsSubmitting] = useState(false);
 
-// const handleSubmit = (e) => {
-//     e.preventDefault();
+const handleSubmit = (e) => {
+e.preventDefault();
+setIsSubmitting(true);
+setTimeout(() => {
+    setStatus("success");
+    setFormData({ name: "", email: "", message: "" });
+    setIsSubmitting(false);
+    setTimeout(() => setStatus(null), 3000);
+}, 1000);
+};
 
-//     emailjs
-//     .sendForm(
-//         import.meta.env.VITE_SERVICE_ID,
-//         import.meta.env.VITE_TEMPLATE_ID,
-//         e.target,
-//         import.meta.env.VITE_PUBLIC_KEY
-//     )
-//     .then(() => {
-//         alert("Message sent successfully!");
-//         setFormData({ name: "", email: "", message: "" });
-//     })
-//     .catch(() =>
-//         alert("Oops! Something went wrong. Please try again later.")
-//     );
-// };
+const socialLinks = [
+{ Icon: Github, href: "https://github.com/yourusername", label: "GitHub" },
+{ Icon: Linkedin, href: "https://linkedin.com/in/yourusername", label: "LinkedIn" },
+{ Icon: Facebook, href: "https://facebook.com/yourusername", label: "Facebook" },
+{ Icon: Instagram, href: "https://instagram.com/yourusername", label: "Instagram" }
+];
 
-// return (
-//     <section
-//         id="contact"
-//         className="min-h-screen flex items-center justify-center py-20"
-//     >
-//     <RevealOnScroll>
-//         <div className="px-4 w-100">
-//         <h2 className="text-3xl font-bold mb-8 bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent text-center">
-//             Get In Touch
-//         </h2>
+const formFields = [
+{ Icon: User, name: "name", placeholder: "Your name", type: "text" },
+{ Icon: Mail, name: "email", placeholder: "Your email", type: "email" },
+{ Icon: MessageSquare, name: "message", placeholder: "Your message", type: "textarea" }
+];
 
-//         <form className="space-y-6" onSubmit={handleSubmit}>
-//             <div className="relative">
-//                 <input
-//                     type="text"
-//                     id="name"
-//                     name="name"
-//                     value={formData.name}
-//                     required
-//                     className="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-white transition focus:outline-none focus:border-blue-500 focus:bg-blue-500/5"
-//                     placeholder="Name..."
-//                     onChange={(e) =>
-//                     setFormData({ ...formData, name: e.target.value })
-//                     }
-//                 />
-//             </div>
+const buttonClass = "px-6 py-3 bg-[var(--primary)] hover:bg-[rgba(255,255,255,0.2)] border rounded-lg text-[var(--secondary)] font-medium transition-all duration-300 hover:scale-105 flex items-center gap-2 justify-center";
+const buttonStyle = { borderColor: "var(--button-border)" };
 
-//             <div className="relative">
-//                 <input
-//                     type="email"
-//                     id="email"
-//                     name="email"
-//                     required
-//                     value={formData.email}
-//                     className="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-white transition focus:outline-none focus:border-blue-500 focus:bg-blue-500/5"
-//                     placeholder="example@gmail.com"
-//                     onChange={(e) =>
-//                     setFormData({ ...formData, email: e.target.value })
-//                     }
-//                 />
-//             </div>
+return (
+<section id="contact" className="py-24 relative overflow-hidden">
+    <div className="w-full max-w-4xl mx-auto px-4 relative z-10">
+    <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: true }}
+        className="backdrop-blur-md rounded-2xl border bg-[rgba(255,255,255,0.02)] border-[rgba(255,255,255,0.2)] p-6 md:p-10 shadow-2xl light-border"
+    >
+        <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.1 }}
+        className="text-center mb-10"
+        >
+        <h2 className="text-4xl md:text-5xl font-bold text-[var(--secondary)] mb-4">Let's Connect</h2>
+        <p className="text-[var(--tertiary)] text-lg max-w-2xl mx-auto">
+            Have a project, idea, or just want to say hi? Fill out the form below and I'll get back to you soon.
+        </p>
+        </motion.div>
 
-//             <div className="relative">
-//                 <textarea
-//                     id="message"
-//                     name="message"
-//                     required
-//                     rows={5}
-//                     value={formData.message}
-//                     className="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-white transition focus:outline-none focus:border-blue-500 focus:bg-blue-500/5"
-//                     placeholder="Your Message..."
-//                     onChange={(e) =>
-//                     setFormData({ ...formData, message: e.target.value })
-//                     }
-//                 />
-//             </div>
+        <div className="flex flex-col lg:flex-row gap-12">
+        <div className="flex-1 space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
+            {formFields.map((field, index) => {
+                const { Icon, name, placeholder, type } = field;
+                return (
+                <motion.div
+                    key={name}
+                    initial={{ opacity: 0, x: -30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.2 + index * 0.1 }}
+                    className="relative"
+                >
+                    <Icon size={18} className="absolute left-4 top-4 text-[var(--tertiary)]" />
+                    {type === "textarea" ? (
+                    <motion.textarea
+                        name={name}
+                        rows={5}
+                        required
+                        placeholder={placeholder}
+                        value={formData[name]}
+                        onChange={(e) => setFormData({ ...formData, [name]: e.target.value })}
+                        whileFocus={{ scale: 1.02 }}
+                        className="w-full pl-12 pr-4 py-4 rounded-xl bg-[rgba(255,255,255,0.05)] border-2 border-[var(--tertiary)] text-[var(--secondary)] placeholder-[var(--tertiary)] focus:outline-none focus:border-[var(--highlight)] focus:bg-[rgba(255,255,255,0.08)] transition-all duration-300 resize-none"
+                    />
+                    ) : (
+                    <motion.input
+                        type={type}
+                        name={name}
+                        required
+                        placeholder={placeholder}
+                        value={formData[name]}
+                        onChange={(e) => setFormData({ ...formData, [name]: e.target.value })}
+                        whileFocus={{ scale: 1.02 }}
+                        className="w-full pl-12 pr-4 py-4 rounded-xl bg-[rgba(255,255,255,0.05)] border-2 border-[var(--tertiary)] text-[var(--secondary)] placeholder-[var(--tertiary)] focus:outline-none focus:border-[var(--highlight)] focus:bg-[rgba(255,255,255,0.08)] transition-all duration-300"
+                    />
+                    )}
+                </motion.div>
+                );
+            })}
+            
+            <div className="flex justify-center">
+                <motion.button
+                type="submit"
+                disabled={isSubmitting}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.97 }}
+                className={buttonClass}
+                style={buttonStyle}
+                >
+                {isSubmitting ? (
+                    <>
+                    <div className="w-5 h-5 border-2 border-current border-t-transparent rounded-full animate-spin"></div>
+                    Sending...
+                    </>
+                ) : (
+                    <>
+                    <Send size={18} />
+                    Send Message
+                    </>
+                )}
+                </motion.button>
+            </div>
 
-//             <button
-//                 type="submit"
-//                 className="w-full bg-blue-500 text-white py-3 px-6 rounded font-medium transition relative overflow-hidden hover:-translate-y-0.5 hover:shadow-[0_0_15px_rgba(59,130,246,0.4)]"
-//                 >
-//                 Send Message
-//             </button>
-//         </form>
-//         </div>
-//     </RevealOnScroll>
-//     </section>
-// );
-// };
+            {status && (
+                <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className={`p-4 rounded-lg border ${status === "success" ? "bg-green-500/10 border-green-500" : "bg-red-500/10 border-red-500"}`}
+                >
+                <p className={`font-medium flex items-center gap-2 ${status === "success" ? "text-green-400" : "text-red-400"}`}>
+                    <span className={`w-5 h-5 rounded-full flex items-center justify-center text-white text-xs ${status === "success" ? "bg-green-400" : "bg-red-400"}`}>
+                    {status === "success" ? "✓" : "✗"}
+                    </span>
+                    {status === "success" ? "Message sent successfully!" : "Something went wrong. Try again."}
+                </p>
+                </motion.div>
+            )}
+            </form>
+        </div>
+
+        <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.3 }}
+className="flex-1 flex flex-col justify-start border-t lg:border-t-0 lg:border-l border-[var(--button-border)] lg:pt-0 lg:pl-8 space-y-8"        >
+            <div className="text-center lg:text-left">
+            <h3 className="text-2xl font-bold text-[var(--secondary)] mb-3">Connect with me</h3>
+            <p className="text-[var(--tertiary)] mb-6">
+                Let's stay connected! Follow me on social media for updates.
+            </p>
+            </div>
+
+            <div className="grid grid-cols-2 gap-4">
+            {socialLinks.map((link, index) => {
+                const { Icon, href, label } = link;
+                return (
+                <motion.a
+                    key={label}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4 + index * 0.1 }}
+                    whileHover={{ scale: 1.05, y: -3 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="flex flex-col items-center gap-3 p-6 rounded-xl bg-[rgba(255,255,255,0.05)] border border-[var(--button-border)] text-[var(--secondary)] hover:text-[var(--highlight)] transition-all duration-300 group"
+                    aria-label={label}
+                >
+                    <Icon size={28} className="transition-transform duration-300 group-hover:scale-110" />
+                    <span className="text-sm font-medium">{label}</span>
+                </motion.a>
+                );
+            })}
+            </div>
+
+            {/* <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8 }}
+            className="p-6 rounded-xl bg-[rgba(255,255,255,0.05)] border border-[var(--button-border)]"
+            >
+            <h4 className="text-lg font-semibold text-[var(--secondary)] mb-3">Quick Contact</h4>
+            <div className="space-y-2 text-sm text-[var(--tertiary)]">
+                <p>Tabinjasper@gmail.com</p>
+                <p>Usually responds within 24 hours</p>
+            </div>
+            </motion.div> */}
+        </motion.div>
+        </div>
+    </motion.div>
+    </div>
+</section>
+);
+};

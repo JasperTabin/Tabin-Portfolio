@@ -107,7 +107,6 @@ export const Home = () => {
                     animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                     transition={{ duration: 0.8, delay: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
                 >
-                    {/* Improved description text */}
                     <p 
                         className="font-medium text-lg md:text-xl lg:text-2xl leading-relaxed max-w-4xl mx-auto"
                         style={{ ...fontStyle, color: "var(--tertiary)" }}
@@ -154,7 +153,7 @@ export const Home = () => {
             </div>
             
             {/* PARTICLES */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            {/* <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 {[...Array(20)].map((_, i) => (
                     <motion.div
                         key={i}
@@ -177,7 +176,7 @@ export const Home = () => {
                         }}
                     />
                 ))}
-            </div>
+            </div> */}
         </section>
     );
 };

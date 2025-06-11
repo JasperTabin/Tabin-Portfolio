@@ -24,7 +24,7 @@ export const About = () => {
     };
 
     return (
-        <section id="about" className="flex flex-col items-center justify-center py-12" ref={ref}>
+        <section id="about" className="flex flex-col items-center justify-center py-15 mb-80" ref={ref}>
             <div className="w-full max-w-4xl px-4 text-center">
                 <motion.h2
                     className="text-4xl md:text-5xl font-bold mb-2 flex items-center justify-center gap-4"
@@ -38,19 +38,15 @@ export const About = () => {
                     {...fadeIn}
                     transition={{ ...fadeIn.transition, delay: 0.1 }}
                 >
-                    <svg height="2" width="40" className="sm:hidden" aria-hidden="true">
-                        <line x1="0" y1="1" x2="40" y2="1" stroke="var(--accent)" strokeWidth="2" opacity="0.6" />
-                    </svg>
-                    <svg height="2" width="80" className="hidden sm:inline" aria-hidden="true">
-                        <line x1="0" y1="1" x2="80" y2="1" stroke="var(--accent)" strokeWidth="2" opacity="0.6" />
-                    </svg>
-                    About Me
-                    <svg height="2" width="40" className="sm:hidden" aria-hidden="true">
-                        <line x1="0" y1="1" x2="40" y2="1" stroke="var(--accent)" strokeWidth="2" opacity="0.6" />
-                    </svg>
-                    <svg height="2" width="80" className="hidden sm:inline" aria-hidden="true">
-                        <line x1="0" y1="1" x2="80" y2="1" stroke="var(--accent)" strokeWidth="2" opacity="0.6" />
-                    </svg>
+                   <div className="flex items-center w-full justify-center gap-4">
+                        <svg height="2" width="80" aria-hidden="true">
+                            <line x1="0" y1="1" x2="80" y2="1" stroke="var(--accent)" strokeWidth="2" opacity="0.6" />
+                        </svg>
+                        <span>About Me</span>
+                        <svg height="2" width="80" aria-hidden="true">
+                            <line x1="0" y1="1" x2="80" y2="1" stroke="var(--accent)" strokeWidth="2" opacity="0.6" />
+                        </svg>
+                    </div>
                 </motion.h2>
 
                 <motion.div

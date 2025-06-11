@@ -64,7 +64,7 @@ export const Welcome = () => {
             id="Welcome"
             className="min-h-screen flex items-center justify-center relative overflow-hidden"
         >
-            <ParticlesBackground />
+            {/* <ParticlesBackground /> */}
 
             <div className="relative z-10 text-center">
                 <div className="flex justify-center items-baseline mb-1">
@@ -147,7 +147,7 @@ export const Welcome = () => {
             </motion.div>
             
             {/* Corder Design */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            {/* <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 <motion.div 
                     className="absolute -top-40 -right-40 w-80 h-80 rounded-full"
                     animate={{ scale: [1, 1.2, 1], rotate: [0, 90, 0] }}
@@ -160,7 +160,7 @@ export const Welcome = () => {
                     transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
                     style={{ background: "var(--tertiary)", opacity: 0.05 }}
                 />
-            </div>
+            </div> */}
         </section>
     );
 };

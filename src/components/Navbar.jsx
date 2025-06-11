@@ -91,6 +91,21 @@ export const Navbar = ({ menuOpen, setMenuOpen }) => {
                   >
                     About
                   </a>
+                  
+                   <a
+                    href="#Skills"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      scrollToSection('Skills');
+                    }}
+                    className="transition-colors duration-200 text-sm font-bold"
+                    style={{ color: "var(--tertiary)" }}
+                    onMouseEnter={e => e.currentTarget.style.color = "var(--secondary)"}
+                    onMouseLeave={e => e.currentTarget.style.color = "var(--tertiary)"}
+                  >
+                    Skills
+                  </a>
+
                   <a
                     href="#projects"
                     onClick={(e) => {
