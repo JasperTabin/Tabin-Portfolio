@@ -32,7 +32,7 @@ export const Skills = () => {
 
     return (
         <section
-            id="Skills"
+            id="skills"
             ref={ref}
             className="flex flex-col items-center justify-center py-15 mb-80"
             style={{ backgroundColor: 'var(--primary)' }}
@@ -69,9 +69,7 @@ export const Skills = () => {
                     <div className="overflow-hidden w-full flex justify-center">
                         <motion.div
                             className="flex gap-12 items-center"
-                            animate={{
-                                x: [-200, 200]
-                            }}
+                            animate={{ x: [-200, 200] }}
                             transition={{
                                 duration: 12,
                                 repeat: Infinity,
@@ -100,7 +98,6 @@ export const Skills = () => {
                     </div>
                 </motion.div>
 
-                {/* Optional: Add some descriptive text */}
                 <motion.p
                     {...fadeIn}
                     transition={{ ...fadeIn.transition, delay: 0.5 }}

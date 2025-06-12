@@ -39,14 +39,13 @@ return (
     <div className="w-full max-w-4xl mx-auto px-4 relative z-10">
     <motion.div
         initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        viewport={{ once: true }}
         className="backdrop-blur-md rounded-2xl border bg-[rgba(255,255,255,0.02)] border-[rgba(255,255,255,0.2)] p-6 md:p-10 shadow-2xl light-border"
     >
         <motion.div
         initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.1 }}
         className="text-center mb-10"
         >
@@ -65,7 +64,7 @@ return (
                 <motion.div
                     key={name}
                     initial={{ opacity: 0, x: -30 }}
-                    whileInView={{ opacity: 1, x: 0 }}
+                    animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.2 + index * 0.1 }}
                     className="relative"
                 >
@@ -102,7 +101,7 @@ return (
                 type="submit"
                 disabled={isSubmitting}
                 initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.97 }}
@@ -142,9 +141,9 @@ return (
 
         <motion.div
             initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3 }}
-className="flex-1 flex flex-col justify-start border-t lg:border-t-0 lg:border-l border-[var(--button-border)] lg:pt-0 lg:pl-8 space-y-8"        >
+            className="flex-1 flex flex-col justify-start border-t lg:border-t-0 lg:border-l border-[var(--button-border)] lg:pt-0 lg:pl-8 space-y-8"        >
             <div className="text-center lg:text-left">
             <h3 className="text-2xl font-bold text-[var(--secondary)] mb-3">Connect with me</h3>
             <p className="text-[var(--tertiary)] mb-6">
@@ -162,11 +161,11 @@ className="flex-1 flex flex-col justify-start border-t lg:border-t-0 lg:border-l
                     target="_blank"
                     rel="noopener noreferrer"
                     initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4 + index * 0.1 }}
                     whileHover={{ scale: 1.05, y: -3 }}
                     whileTap={{ scale: 0.95 }}
-                    className="flex flex-col items-center gap-3 p-6 rounded-xl bg-[rgba(255,255,255,0.05)] border border-[var(--button-border)] text-[var(--secondary)] hover:text-[var(--highlight)] transition-all duration-300 group"
+                    className="flex flex-col items-center gap-3 p-6 rounded-xl bg-[rgba(255,255,255,0.05)] border border-[var(--button-border)] text-[var(--secondary)] hover:text-[var(--tertiary)] transition-all duration-300 group"
                     aria-label={label}
                 >
                     <Icon size={28} className="transition-transform duration-300 group-hover:scale-110" />
@@ -176,18 +175,6 @@ className="flex-1 flex flex-col justify-start border-t lg:border-t-0 lg:border-l
             })}
             </div>
 
-            {/* <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8 }}
-            className="p-6 rounded-xl bg-[rgba(255,255,255,0.05)] border border-[var(--button-border)]"
-            >
-            <h4 className="text-lg font-semibold text-[var(--secondary)] mb-3">Quick Contact</h4>
-            <div className="space-y-2 text-sm text-[var(--tertiary)]">
-                <p>Tabinjasper@gmail.com</p>
-                <p>Usually responds within 24 hours</p>
-            </div>
-            </motion.div> */}
         </motion.div>
         </div>
     </motion.div>

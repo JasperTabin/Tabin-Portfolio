@@ -4,18 +4,18 @@
     --primary: #0a0a0a;
     --secondary: #F9F6EE;
     --tertiary: #D3D3D3;  
-    --accent: #F9F6EE; /* SVG LINES */
-    --button-border: rgba(255,255,255,0.3); /* Add this */
-    --highlight: #708090;
+    --accent: #F9F6EE; 
+    --button-border: rgba(255,255,255,0.3); 
+    /* --highlight: #708090; */
 }
 
 .light {
     --primary: #F9F6EE;
     --secondary: #0a0a0a;
     --tertiary: #4a4a4a;
-    --accent: #0a0a0a; /* SVG LINES */
-    --button-border: rgba(0,0,0,0.3); /* Add this */
-    --highlight: #708090;
+    --accent: #0a0a0a; 
+    --button-border: rgba(0,0,0,0.3); 
+    /* --highlight: #708090; */
 }
 
 .light .light-border {
@@ -44,6 +44,7 @@ body {
 }
 
 
+/* Hand Emoji Animation */
 @keyframes wave {
   0%, 100% { transform: rotate(0deg); }
   25% { transform: rotate(20deg); }
