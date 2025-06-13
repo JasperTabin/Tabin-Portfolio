@@ -1,1 +1,2 @@
-Temporary link: https://jaspertabin.github.io/Tabin-Portfolio/
+Deployed In Vercel:
+tabin-portfolio.vercel.app
