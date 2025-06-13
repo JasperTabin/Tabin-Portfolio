@@ -94,14 +94,22 @@ export const Projects = () => {
                 02
               </span>
               <div className="flex gap-2">
-                <Github
-                  className="w-5 h-5 hover:opacity-70"
-                  style={{ color: "var(--secondary)" }}
-                />
-                <ExternalLink
-                  className="w-5 h-5 hover:opacity-70"
-                  style={{ color: "var(--secondary)" }}
-                />
+                <a
+                  href="https://github.com/JasperTabin/Tabin-Portfolio"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Github
+                    className="w-5 h-5 hover:opacity-70"
+                    style={{ color: "var(--secondary)" }}
+                  />
+                </a>
+                <a href="" target="_blank" rel="noopener noreferrer">
+                  <ExternalLink
+                    className="w-5 h-5 hover:opacity-70"
+                    style={{ color: "var(--secondary)" }}
+                  />
+                </a>
               </div>
             </div>
 
@@ -130,15 +138,32 @@ export const Projects = () => {
               <h4
                 className="text-2xl font-bold"
                 style={{ color: "var(--secondary)" }}
-              >   
+              >
                 Personal Portfolio
               </h4>
               <p className="text-base" style={{ color: "var(--tertiary)" }}>
                 A modern and responsive personal portfolio website
               </p>
-              <p className="text-sm tracking-wide text-gray-400 uppercase">
-                React · TailwindCSS · Vite · HTML · CSS · JavaScript
-              </p>
+              <div className="flex flex-wrap gap-2 justify-center">
+                <span className="text-xs px-2 py-1 rounded-full bg-[#61DBFB] text-black">
+                  React
+                </span>
+                <span className="text-xs px-2 py-1 rounded-full bg-[#38BDF8] text-black">
+                  TailwindCSS
+                </span>
+                <span className="text-xs px-2 py-1 rounded-full bg-[#646CFF] text-black">
+                  Vite
+                </span>
+                <span className="text-xs px-2 py-1 rounded-full bg-[#E34F26] text-black">
+                  HTML
+                </span>
+                <span className="text-xs px-2 py-1 rounded-full bg-[#264DE4] text-black">
+                  CSS
+                </span>
+                <span className="text-xs px-2 py-1 rounded-full bg-[#F7DF1E] text-black">
+                  JavaScript
+                </span>
+              </div>
             </div>
           </motion.div>
         </div>
