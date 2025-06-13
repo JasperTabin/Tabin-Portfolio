@@ -1,14 +1,5 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { 
-    Code2, 
-    Figma, 
-    Atom, 
-    Database, 
-    GitBranch, 
-    Triangle, 
-    Palette,
-} from 'lucide-react';
 
 export const Skills = () => {
     const ref = useRef(null);
@@ -21,13 +12,18 @@ export const Skills = () => {
     };
     
     const techStack = [
-        { name: 'CSS', icon: Palette },
-        { name: 'JavaScript', icon: Code2 },
-        { name: 'Figma', icon: Figma },
-        { name: 'React', icon: Atom },
-        { name: 'MySQL', icon: Database },
-        { name: 'Git', icon: GitBranch },
-        { name: 'Vercel', icon: Triangle },
+        { name: 'JavaScript', iconUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/javascript.svg', color: '#F7DF1E' },
+        { name: 'TypeScript', iconUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/typescript.svg', color: '#3178C6' },
+        { name: 'CSS3', iconUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/css3.svg', color: '#1572B6' },
+        { name: 'React', iconUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/react.svg', color: '#61DAFB' },
+        { name: 'Node.js', iconUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/nodedotjs.svg', color: '#339933' },
+        { name: 'MySQL', iconUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/mysql.svg', color: '#4479A1' },
+        { name: 'MongoDB', iconUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/mongodb.svg', color: '#47A248' },
+        { name: 'Git', iconUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/git.svg', color: '#F05032' },
+        { name: 'Figma', iconUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/figma.svg', color: '#F24E1E' },
+        { name: 'Vercel', iconUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/vercel.svg', color: '#000000' },
+        { name: 'Python', iconUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/python.svg', color: '#3776AB' },
+        { name: 'VS Code', iconUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/visualstudiocode.svg', color: '#007ACC' },
     ];
 
     return (
@@ -71,29 +67,41 @@ export const Skills = () => {
                             className="flex gap-12 items-center"
                             animate={{ x: [-200, 200] }}
                             transition={{
-                                duration: 12,
+                                duration: 15,
                                 repeat: Infinity,
                                 ease: "linear"
                             }}
                             style={{ width: 'fit-content' }}
                         >
-                            {[...techStack, ...techStack, ...techStack].map((tech, index) => {
-                                const IconComponent = tech.icon;
-                                return (
-                                    <motion.div
-                                        key={`icon-${index}`}
-                                        className="flex-shrink-0 flex items-center justify-center hover:scale-110 transition-transform duration-300"
-                                        whileHover={{ scale: 1.3, rotate: 10 }}
-                                        whileTap={{ scale: 0.9 }}
-                                    >
-                                        <IconComponent 
-                                            size={36} 
-                                            style={{ color: 'var(--secondary)' }}
-                                            strokeWidth={1.5}
-                                        />
-                                    </motion.div>
-                                );
-                            })}
+                            {[...techStack, ...techStack].map((tech, index) => (
+                                <motion.div
+                                    key={`icon-${index}`}
+                                    className="flex-shrink-0 flex items-center justify-center transition-all duration-300 relative group cursor-pointer"
+                                    style={{ width: '48px', height: '48px' }}
+                                >
+                                    {/* Icon - completely hidden on hover */}
+                                    <div
+                                        className="transition-opacity duration-200 group-hover:opacity-0 opacity-90"
+                                        style={{
+                                            width: '40px',
+                                            height: '40px',
+                                            backgroundColor: 'var(--secondary)',
+                                            mask: `url(${tech.iconUrl}) no-repeat center / contain`,
+                                            WebkitMask: `url(${tech.iconUrl}) no-repeat center / contain`
+                                        }}
+                                    />
+                                    {/* Text box - shown on hover, replaces icon completely */}
+                                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 backdrop-blur-sm border border-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-10 rounded-2xl w-20 h-10 flex items-center justify-center px-2"
+                                        style={{ backgroundColor: 'var(--secondary)' }}>
+                                        <span 
+                                            className="text-xs font-medium text-center leading-tight" 
+                                            style={{ color: 'var(--primary)' }}
+                                        >
+                                            {tech.name}
+                                        </span>
+                                    </div>
+                                </motion.div>
+                            ))}
                         </motion.div>
                     </div>
                 </motion.div>
