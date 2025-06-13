@@ -3,12 +3,15 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Sun, Moon } from "lucide-react";
 import { useTheme } from "./ThemeContext";
 
+const sections = ["home", "about", "skills", "projects"];
+
 export const Navbar = ({ menuOpen, setMenuOpen }) => {
   const [showNavbar, setShowNavbar] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [indicatorStyle, setIndicatorStyle] = useState({ left: 0, width: 0 });
   const { isDark, toggleTheme } = useTheme();
 
+  // Initialize refs
   const homeRef = useRef(null);
   const aboutRef = useRef(null);
   const skillsRef = useRef(null);
@@ -28,50 +31,36 @@ export const Navbar = ({ menuOpen, setMenuOpen }) => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
   }, [menuOpen]);
 
+  const isElementInView = (element) => {
+    const rect = element.getBoundingClientRect();
+    return (
+      rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2
+    );
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       setShowNavbar(window.scrollY > window.innerHeight * 0.8);
 
-      // Check if contact section is in view
       const contact = document.getElementById("contact");
-      if (contact) {
-        const rect = contact.getBoundingClientRect();
-        const isVisible =
-          rect.top <= window.innerHeight / 2 &&
-          rect.bottom >= window.innerHeight / 2;
+      const contactVisible = contact && isElementInView(contact);
 
-        if (isVisible) {
-          if (activeSection !== "") setActiveSection("");
+      if (contactVisible) {
+        if (activeSection !== "") setActiveSection("");
+        return;
+      }
+
+      for (const sectionId of sections) {
+        const section = document.getElementById(sectionId);
+        if (section && isElementInView(section)) {
+          if (activeSection !== sectionId) setActiveSection(sectionId);
           return;
         }
       }
-
-      // Check other sections
-      const sections = ["home", "about", "skills", "projects"];
-      for (const sectionId of sections) {
-        const section = document.getElementById(sectionId);
-        if (section) {
-          const rect = section.getBoundingClientRect();
-          const sectionVisible =
-            rect.top <= window.innerHeight / 2 &&
-            rect.bottom >= window.innerHeight / 2;
-
-          if (sectionVisible) {
-            if (activeSection !== sectionId) {
-              setActiveSection(sectionId);
-            }
-            return;
-          }
-        }
-      }
-
-      // No update if nothing matched
     };
 
     const timeoutId = setTimeout(() => {
-      if (!window.location.hash) {
-        handleScroll();
-      }
+      if (!window.location.hash) handleScroll();
     }, 300);
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -96,24 +85,47 @@ export const Navbar = ({ menuOpen, setMenuOpen }) => {
 
   const scrollToSection = (id) => {
     const section = document.getElementById(id);
-    if (section) {
-      if (id === "home") {
-        section.scrollIntoView({ behavior: "smooth" });
-      } else {
-        const navbarHeight = 80;
-        const additionalOffset = 20;
-        const totalOffset = navbarHeight + additionalOffset;
-        const elementPosition = section.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - totalOffset;
-        window.scrollTo({
-          top: Math.max(0, offsetPosition),
-          behavior: "smooth",
-        });
-      }
-      history.replaceState(null, null, `#${id}`);
-      setActiveSection(id === "contact" ? "" : id);
+    if (!section) return;
+
+    if (id === "home") {
+      section.scrollIntoView({ behavior: "smooth" });
+    } else {
+      const navbarHeight = 100;
+      const additionalOffset = 20;
+      const totalOffset = navbarHeight + additionalOffset;
+      const elementPosition = section.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - totalOffset;
+      window.scrollTo({
+        top: Math.max(0, offsetPosition),
+        behavior: "smooth",
+      });
     }
+    history.replaceState(null, null, `#${id}`);
+    setActiveSection(id === "contact" ? "" : id);
   };
+
+  const NavLink = ({ section }) => (
+    <a
+      href={`#${section}`}
+      ref={navRefs[section]}
+      onClick={(e) => {
+        e.preventDefault();
+        scrollToSection(section);
+      }}
+      className="relative transition-colors duration-200 text-sm font-bold"
+      style={{
+        color: activeSection === section ? "var(--secondary)" : "var(--tertiary)",
+        opacity: activeSection === "" ? 0.6 : 1,
+      }}
+      onMouseEnter={(e) => (e.currentTarget.style.color = "var(--secondary)")}
+      onMouseLeave={(e) =>
+        (e.currentTarget.style.color =
+          activeSection === section ? "var(--secondary)" : "var(--tertiary)")
+      }
+    >
+      {section.charAt(0).toUpperCase() + section.slice(1)}
+    </a>
+  );
 
   return (
     <AnimatePresence>
@@ -135,8 +147,8 @@ export const Navbar = ({ menuOpen, setMenuOpen }) => {
                 }}
                 className="font-mono text-lg font-bold transition-colors duration-200"
                 style={{ color: "var(--tertiary)" }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = "var(--secondary)") }
-                onMouseLeave={(e) => (e.currentTarget.style.color = "var(--tertiary)") }
+                onMouseEnter={(e) => (e.currentTarget.style.color = "var(--secondary)")}
+                onMouseLeave={(e) => (e.currentTarget.style.color = "var(--tertiary)")}
               >
                 JT
               </a>
@@ -151,63 +163,48 @@ export const Navbar = ({ menuOpen, setMenuOpen }) => {
 
               <div className="hidden md:flex items-center justify-center flex-1">
                 <div className="flex items-center space-x-8">
-                  {["home", "about", "skills", "projects"].map((section) => (
-                    <a
-                      key={section}
-                      href={`#${section}`}
-                      ref={navRefs[section]}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        scrollToSection(section);
-                      }}
-                      className="relative transition-colors duration-200 text-sm font-bold"
-                      style={{
-                        color:
-                          activeSection === section
-                            ? "var(--secondary)"
-                            : "var(--tertiary)",
-                        opacity: activeSection === "" ? 0.6 : 1,
-                      }}
-                      onMouseEnter={(e) =>
-                        (e.currentTarget.style.color = "var(--secondary)")
-                      }
-                      onMouseLeave={(e) =>
-                        (e.currentTarget.style.color =
-                          activeSection === section
-                            ? "var(--secondary)"
-                            : "var(--tertiary)")
-                      }
-                    >
-                      {section.charAt(0).toUpperCase() + section.slice(1)}
-                    </a>
+                  {sections.map((section) => (
+                    <NavLink key={section} section={section} />
                   ))}
                 </div>
               </div>
 
-              <button
+              <motion.button
                 onClick={toggleTheme}
-                className="p-2 rounded-lg transition-all duration-200"
+                className="p-2 rounded-full relative"
                 style={{
                   background: "none",
                   color: "var(--tertiary)",
                   cursor: "pointer",
                 }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.color = "var(--secondary)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.color = "var(--tertiary)";
-                }}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
                 aria-label="Toggle dark mode"
               >
+                {/* Static background circle */}
+                <div
+                  className="absolute inset-0 rounded-full bg-current opacity-10"
+                  aria-hidden="true"
+                />
                 <motion.div
                   initial={false}
-                  animate={{ rotate: !isDark ? 180 : 0 }}
-                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                  animate={{
+                    rotate: !isDark ? 180 : 0,
+                    scale: [1, 1.2, 1],
+                  }}
+                  transition={{
+                    duration: 0.5,
+                    ease: "easeInOut",
+                    scale: {
+                      duration: 0.3,
+                      repeat: 1,
+                      repeatType: "reverse",
+                    },
+                  }}
                 >
                   {isDark ? <Moon size={18} /> : <Sun size={18} />}
                 </motion.div>
-              </button>
+              </motion.button>
             </div>
 
             {indicatorStyle.width > 0 && (

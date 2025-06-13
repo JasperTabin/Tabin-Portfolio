@@ -63,7 +63,7 @@ export const Socials = () => {
             <div className="flex flex-col items-center gap-4">
               {/* LinkedIn */}
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/jasper-tabin-1b8aaa348/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="transition-all duration-200 p-2 rounded-lg"
@@ -101,7 +101,7 @@ export const Socials = () => {
 
               {/* GitHub */}
               <a
-                href="https://github.com"
+                href="https://github.com/JasperTabin"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="transition-all duration-200 p-2 rounded-lg"

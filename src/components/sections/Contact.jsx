@@ -57,10 +57,10 @@ export const Contact = () => {
   };
 
   const socialLinks = [
-    { Icon: Github, href: "https://github.com/yourusername", label: "GitHub" },
-    { Icon: Linkedin, href: "https://linkedin.com/in/yourusername", label: "LinkedIn" },
-    { Icon: Facebook, href: "https://facebook.com/yourusername", label: "Facebook" },
-    { Icon: Instagram, href: "https://instagram.com/yourusername", label: "Instagram" }
+    { Icon: Github, href: "https://github.com/JasperTabin", label: "GitHub" },
+    { Icon: Linkedin, href: "https://www.linkedin.com/in/jasper-tabin-1b8aaa348/", label: "LinkedIn" },
+    { Icon: Facebook, href: "https://www.facebook.com/jasper.tabin.5", label: "Facebook" },
+    { Icon: Instagram, href: "https://www.instagram.com/jasper_tabin/", label: "Instagram" }
   ];
 
   const formFields = [
