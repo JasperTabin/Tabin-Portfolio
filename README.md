@@ -10,6 +10,16 @@ Welcome to my personal developer portfolio built with React, Tailwind CSS, VITE,
 
 ---
 
+🛠️ Tech Stack
+
+- [React](https://reactjs.org/) – Frontend library
+- [TailwindCSS](https://tailwindcss.com/) – Utility-first CSS
+- [Framer Motion](https://www.framer.com/motion/) – Animations
+- [Lucide Icons](https://lucide.dev/) – Icon library
+- [Vercel](https://vercel.com/) – Deployment
+
+--
+
 ## 📸 Screenshots
 
 Light Mode Sample:
@@ -32,16 +42,3 @@ Project Section:
 
 Contact Section:
 ![Contact_SS](https://github.com/user-attachments/assets/c7c2fa6c-35fc-430b-ac2b-77316dc746fa)
-
-
----
-
-## 🛠️ Built With
-
-- [React](https://reactjs.org/) – Frontend library
-- [TailwindCSS](https://tailwindcss.com/) – Utility-first CSS
-- [Framer Motion](https://www.framer.com/motion/) – Animations
-- [Lucide Icons](https://lucide.dev/) – Icon library
-- [Vercel](https://vercel.com/) – Deployment
-
----
