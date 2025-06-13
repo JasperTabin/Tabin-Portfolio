@@ -18,7 +18,7 @@ Welcome to my personal developer portfolio built with React, Tailwind CSS, VITE,
 - [Lucide Icons](https://lucide.dev/) – Icon library
 - [Vercel](https://vercel.com/) – Deployment
 
---
+---
 
 ## 📸 Screenshots
 
