@@ -34,8 +34,9 @@ function App() {
         <Projects/>
         <Contact/> 
         <BackToTop />
-        <Analytics />
       </div>
+            <Analytics />
+
     </ThemeProvider>
   );
 };
