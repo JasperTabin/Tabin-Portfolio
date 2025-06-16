@@ -91,7 +91,7 @@ export const Projects = () => {
                 className="text-sm font-medium tracking-wide"
                 style={{ color: "var(--secondary)" }}
               >
-                02
+                01
               </span>
               <div className="flex gap-2">
                 <a

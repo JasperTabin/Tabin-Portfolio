@@ -17,7 +17,7 @@ export const About = () => {
     const handleDownload = () => {
         const link = document.createElement('a');
         link.href = ResumePDF;
-        link.download = 'Resume_Tabin.pdf';
+        link.download = 'Tabin_Resume.pdf';
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);

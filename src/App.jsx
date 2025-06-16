@@ -14,6 +14,7 @@ import { Contact } from './components/sections/Contact'
 
 import { BackToTop } from './components/BackToTop'
 
+import { Analytics } from "@vercel/analytics/next"
 
 import './index.css' 
 
@@ -33,6 +34,7 @@ function App() {
         <Projects/>
         <Contact/> 
         <BackToTop />
+        <Analytics />
       </div>
     </ThemeProvider>
   );
