@@ -2,7 +2,7 @@ import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import ProfileImg from '../../assets/Profile.jpg';
 import { Download } from "lucide-react";
-import ResumePDF from '../../assets/Resume_Tabin.pdf';
+import ResumePDF from '../../assets/Tabin_Resume.pdf';
 
 export const About = () => {
     const ref = useRef(null);
