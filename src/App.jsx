@@ -1,45 +1,46 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react';
 
-import { ThemeProvider } from './components/ThemeContext'
-import { Navbar } from './components/Navbar'
-import { MobileMenu } from './components/MobileMenu'
-import { Socials } from './components/Socials'
+import { ThemeProvider } from './components/ThemeContext';
+import { Navbar } from './components/Navbar';
+import { MobileMenu } from './components/MobileMenu';
+import { Socials } from './components/Socials';
 
-import { Welcome } from './components/Welcome'
-import { Home } from './components/sections/Home'
-import { About } from './components/sections/About'
-import { Skills } from './components/sections/Skills'
-import { Projects } from './components/sections/Projects'
-import { Contact } from './components/sections/Contact'
+import { Welcome } from './components/Welcome';
+import { Home } from './components/sections/Home';
+import { About } from './components/sections/About';
+import { Skills } from './components/sections/Skills';
+import { Projects } from './components/sections/Projects';
+import { Contact } from './components/sections/Contact';
 
-import { BackToTop } from './components/BackToTop'
+import { BackToTop } from './components/BackToTop';
 
-import { Analytics } from "@vercel/analytics/next"
-
-import './index.css' 
+import { inject } from '@vercel/analytics'; 
+import './index.css';
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
+
+  // Inject Vercel Analytics
+  useEffect(() => {
+    inject();
+  }, []);
 
   return (
     <ThemeProvider>
       <div className="min-h-screen transition-colors duration-300">
         <Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
         <MobileMenu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
-        <Socials/>
-        <Welcome/>
-        <Home/>
-        <About/>
-        <Skills/>
-        <Projects/>
-        <Contact/> 
+        <Socials />
+        <Welcome />
+        <Home />
+        <About />
+        <Skills />
+        <Projects />
+        <Contact />
         <BackToTop />
       </div>
-            <Analytics />
-
     </ThemeProvider>
   );
-};
+}
 
-export default App
-
+export default App;
