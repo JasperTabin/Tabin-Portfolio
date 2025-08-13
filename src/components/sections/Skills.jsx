@@ -11,20 +11,23 @@ export const Skills = () => {
         transition: { duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }
     };
     
-    const techStack = [
-        { name: 'JavaScript', iconUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/javascript.svg', color: '#F7DF1E' },
-        { name: 'TypeScript', iconUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/typescript.svg', color: '#3178C6' },
-        { name: 'CSS3', iconUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/css3.svg', color: '#1572B6' },
-        { name: 'React', iconUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/react.svg', color: '#61DAFB' },
-        { name: 'Node.js', iconUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/nodedotjs.svg', color: '#339933' },
-        { name: 'MySQL', iconUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/mysql.svg', color: '#4479A1' },
-        { name: 'MongoDB', iconUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/mongodb.svg', color: '#47A248' },
-        { name: 'Git', iconUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/git.svg', color: '#F05032' },
-        { name: 'Figma', iconUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/figma.svg', color: '#F24E1E' },
-        { name: 'Vercel', iconUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/vercel.svg', color: '#000000' },
-        { name: 'Python', iconUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/python.svg', color: '#3776AB' },
-        { name: 'VS Code', iconUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/visualstudiocode.svg', color: '#007ACC' },
-    ];
+  const techStack = [
+    { name: 'JavaScript', iconUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/javascript.svg', color: '#F7DF1E' },
+    { name: 'TypeScript', iconUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/typescript.svg', color: '#3178C6' },
+    { name: 'CSS3', iconUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/css3.svg', color: '#1572B6' },
+    { name: 'React', iconUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/react.svg', color: '#61DAFB' },
+    { name: 'Node.js', iconUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/nodedotjs.svg', color: '#339933' },
+    { name: 'MySQL', iconUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/mysql.svg', color: '#4479A1' },
+    { name: 'MongoDB', iconUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/mongodb.svg', color: '#47A248' },
+    { name: 'Git', iconUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/git.svg', color: '#F05032' },
+    { name: 'Figma', iconUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/figma.svg', color: '#F24E1E' },
+    { name: 'Vercel', iconUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/vercel.svg', color: '#000000' },
+    { name: 'Python', iconUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/python.svg', color: '#3776AB' },
+    { name: 'MS Office', iconUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/microsoftoffice.svg', color: '#D83B01' }, // Added
+    { name: 'VB.NET', iconUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/visualstudio.svg', color: '#5C2D91' }, // Added
+    { name: 'VS Code', iconUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/visualstudiocode.svg', color: '#007ACC' },
+];
+
 
     return (
         <section
