@@ -7,6 +7,8 @@ import DesktopImage1 from "../../assets/Desktop1.jpg";
 import MobileImage1 from "../../assets/Mobile1.jpg";
 import DesktopImage2 from "../../assets/Desktop2.png";
 import MobileImage2 from "../../assets/Mobile2.jpg";
+import DesktopImage3 from "../../assets/Desktop3.jpg";
+import MobileImage3 from "../../assets/Mobile3.jpg";
 
 export const Projects = () => {
   const ref = useRef(null);
@@ -322,6 +324,92 @@ export const Projects = () => {
             </div>
           </motion.div>
         </div>
+
+         {/*  */}
+        <div className="flex flex-col items-center gap-12 mt-12">
+          <motion.div
+            {...fadeIn}
+            transition={{ ...fadeIn.transition, delay: 0.3 }}
+            className={`${cardBaseStyles} ${cardBgColor} ${cardBorderColor}`}
+          >
+            {/* Header */}
+            <div className="flex items-center justify-between mb-6">
+              <span
+                className="text-sm font-medium tracking-wide"
+                style={{ color: "var(--secondary)" }}
+              >
+                04
+              </span>
+              <div className="flex gap-2">
+                <a
+                  href="https://github.com/JasperTabin/LaboLinaw-Urban-Web?tab=readme-ov-file"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Github
+                    className="w-5 h-5 hover:opacity-70"
+                    style={{ color: "var(--secondary)" }}
+                  />
+                </a>
+                <a href="https://jaspertabin.github.io/LaboLinaw-Urban-Web/" target="_blank" rel="noopener noreferrer">
+                  <ExternalLink
+                    className="w-5 h-5 hover:opacity-70"
+                    style={{ color: "var(--secondary)" }}
+                  />
+                </a>
+              </div>
+            </div>
+
+            {/* Image Preview */}
+            <div className="relative w-full h-[25rem] bg-neutral-900 rounded-xl border border-neutral-700 shadow-xl overflow-hidden">
+              <div className="absolute top-3 left-1/2 -translate-x-1/2 w-12 h-1.5 bg-neutral-600 rounded-full z-20" />
+              <img
+                src={DesktopImage3}
+                alt="Desktop View"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute bottom-[15px] right-4 z-30">
+                <div className="w-[120px] h-[250px] bg-black rounded-[2rem] overflow-hidden border-4 border-neutral-800 shadow-2xl relative">
+                  <img
+                    src={MobileImage3}
+                    alt="Mobile View"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute top-2 left-1/2 -translate-x-1/2 w-10 h-1 bg-neutral-700 rounded" />
+                </div>
+              </div>
+            </div>
+
+            {/* Text */}
+            <div className="w-full text-center px-4 mt-4 space-y-2">
+              <h4
+                className="text-2xl font-bold"
+                style={{ color: "var(--secondary)" }}
+              >
+                Labo-Linaw Urban Web
+              </h4>
+              <p className="text-base" style={{ color: "var(--tertiary)" }}>
+                LaboLinaw Urban Web is a modern interior design showcase website that 
+                presents different styles through a clean and visually engaging layout.
+              </p>
+              <div className="flex flex-wrap gap-2 justify-center">
+                <span className="text-xs px-2 py-1 rounded-full bg-[#61DBFB] text-black">
+                  React
+                </span>
+                <span className="text-xs px-2 py-1 rounded-full bg-[#E34F26] text-black">
+                  HTML
+                </span>
+                <span className="text-xs px-2 py-1 rounded-full bg-[#264DE4] text-black">
+                  CSS
+                </span>
+                <span className="text-xs px-2 py-1 rounded-full bg-[#F7DF1E] text-black">
+                  JavaScript
+                </span>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+
       </div>
     </section>
   );
